@@ -1,0 +1,205 @@
+<!doctype html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8"></meta>
+  <title>Network</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script> 
+  <!-- css -->
+  <link href="/css/bootstrap.css" rel="stylesheet" /> 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="/css/style1.css" rel="stylesheet">
+
+  <!-- Theme skin -->
+  <link id="t-colors" href="color/default.css" rel="stylesheet" />
+  <style type="text/css">
+    #mynetwork {
+      width: 500px;
+      height: 300px;
+      border: 1px solid lightgray;
+      background-color : white;
+      position: absolute;
+	  top: 130px;
+      right: 500px;
+      border: 5px solid lightgrey;
+    }
+  </style> 
+</head>
+
+<body>
+ <div id="wrapper">
+    <!-- start header -->
+    <header>
+      <div class="top">
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+<section id="intro">
+      <div class="intro-content">
+        <h2>Overarching Graphs</h2>
+<div th:if="${nodenames}">
+		<input type="hidden" id="text1" th:value="${nodenames}" /></div>
+
+<div id="mynetwork"  ></div>   
+
+	
+
+
+<script type="text/javascript">
+var nodenms=document.getElementById('text1').value;
+var arr=nodenms.split(', ');
+
+
+  // create an array with nodes
+
+var nodes= new vis.DataSet();
+for(var i=0;i<arr.length;i++)
+{
+	nodes.add([{id: i, label: arr[i] }]);
+	//document.write(i+" "+arr[i]);
+}
+	   
+		
+	  // create an array with edges
+	  var edges = new vis.DataSet();
+	  for(var i=0;i<arr.length;i++)
+	  {  
+	  edges.add([{from: i, to: i+1}]);
+	  }  
+	
+	 
+	  // create a network
+		
+	  var container = document.getElementById('mynetwork');
+	  var data = {
+	    nodes: nodes,
+	    edges: edges
+	  };
+	  var options = {
+			  edges:{
+				  arrows:'to',
+				  color:'black',
+				  font:'12px arial #ff0000',
+				  scaling:{
+				  label:true,
+				  
+				  },
+				  shadow:false,
+				  smooth:true,
+				  },
+				  nodes:{
+				  
+				  fixed:false,
+				  font:'20px arial black',
+				  scaling:{
+				  label:true,
+				  
+				  },
+				  shadow:false,
+				  }
+	  };
+	  var network = new vis.Network(container, data, options);
+	  </script>
+	   <section id="content">
+      <div class="container">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+
+        <div class="row">
+          <div class="span12">
+            <div class="row">
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-info badge-circled">1</span>
+                    <i class="ico icon-dropbox icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Upload yaml Files</strong></h4>
+                    <p>
+                      Choose and upload your yaml files for Graph Visualization
+                    </p>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-success badge-circled">2</span>
+                    <i class="ico icon-bitbucket icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Give Precedence</strong></h4>
+                    <p>
+                      Give sequence for your uploaded files for merging
+                    </p>
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-warning badge-circled">3</span>
+                    <i class="ico icon-rocket icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Merging</strong></h4>
+                    <p>
+                      Merge Your uploaded files 
+                    </p>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-important badge-circled">4</span>
+                    <i class="ico icon-cut icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Visualization</strong></h4>
+                    <p>
+                     See how your uploaded files in the form of graph!!
+                    </p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+       
+</body>
+
+</html>
