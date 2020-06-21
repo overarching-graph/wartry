@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8"></meta>
+  <title>Upload Files</title>
+
+  <!-- css -->
+  <link href="/css/bootstrap.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">     </script>
+  <!-- Theme skin -->
+  <link id="t-colors" href="/color/default.css" rel="stylesheet" />
+  <script>
+         $(document).ready(function() {             
+        	$('#clear').on('click', function(e) {                 
+        		var $el = $('#fupload');                 
+        		$el.wrap('<form>').closest(                   
+        				'form').get(0).reset();                 
+        				$el.unwrap();             
+        				});         
+        				}); 
+     </script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- start header -->
+    <header>
+      <div class="top">
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end header -->
+
+    <!-- section intro -->
+    <section id="intro">
+      <div class="intro-content">
+
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+        <h2>Overarching Graphs</h2>
+ <form action="/upload"  method="post" enctype= "multipart/form-data" name="myform" onsubmit ="return validateForm()">
+ <h3>Upload your files here</h3>
+<input type="file" id=fupload class="btn-get-started scrollto" multiple name="files" /><br/>
+<script type="text/javascript">
+	function validateForm(){
+		var x = document.forms["myform"] ["fupload"].value;
+		if(x == "" || x == null){
+			alert("files must be selected");
+			return false;
+		}
+	}  
+	<script>
+	function myFunction() {  
+		var x = document.getElementById("fupload").value;  
+		document.getElementById("demo").innerHTML = x;
+		}</script>
+	
+	</script>
+<input type="submit" class="btn-get-started scrollto" value="upload files" /> 
+<button id="clear" class="btn-get-started scrollto" type="button">Reset file</button>
+        
+</form>
+ 
+    <section id="content">
+      <div class="container">
+<br>
+<br>
+<br>
+<center>
+
+        <div class="row">
+          <div class="span12">
+            <div class="row">
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-info badge-circled">1</span>
+                    <i class="ico icon-dropbox icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Upload yaml Files</strong></h4>
+                    <p>
+                      Choose and upload your yaml files for Graph Visualization
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-success badge-circled">2</span>
+                    <i class="ico icon-bitbucket icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Give Precedence</strong></h4>
+                    <p>
+                      Give sequence for your uploaded files for merging
+                    </p>
+                </div>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-warning badge-circled">3</span>
+                    <i class="ico icon-rocket icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Merging</strong></h4>
+                    <p>
+                      Merge Your uploaded files 
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-important badge-circled">4</span>
+                    <i class="ico icon-cut icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Visualization</strong></h4>
+                    <p>
+                     See how your uploaded files in the form of graph!!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+       
+</body>
+
+</html>

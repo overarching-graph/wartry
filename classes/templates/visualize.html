@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8"></meta>
+  <title>Upload Status</title>
+
+  <!-- css -->
+  <link href="/css/bootstrap.css" rel="stylesheet" /> 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="/css/style1.css" rel="stylesheet">
+
+  <!-- Theme skin -->
+  <link id="t-colors" href="color/default.css" rel="stylesheet" />
+</head>
+<style>
+#btn1{
+position: absolute;
+  top: 300px;
+  right: 700px;
+}
+#btn{
+position: absolute;
+  top: 180px;
+  right: 700px;
+}
+#cp{
+position: absolute;
+  top: 140px;
+  right: 600px;
+  color : white;
+  font-size : 25px;
+}
+
+#cp1{
+position: absolute;
+  top: 260px;
+  right: 630px;
+  color : white;
+  font-size : 25px;
+}
+
+
+</style>
+<body>
+  <div id="wrapper">
+    <!-- start header -->
+    <header>
+      <div class="top">
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end header -->
+    <!-- section intro -->
+    <section id="intro">
+      <div class="intro-content">
+        <center><h2>Overarching Graphs</h2></center>
+        
+		<div th:if="${msg}">
+    <span th:text="${msg}"></span>
+  </div>
+ <form action="/visualize" id =f1 method="post" th:object="${ipt}">
+ <h3>Merged files</h3>
+		<div th:if="${listdisplay}">
+		<textarea id="text" th:text="${listdisplay}" style="margin: 0px 0px 10px; height: 293px; width: 352px;"></textarea>
+		 </div>
+		<br/>
+		<p id= "cp">Click Here to download merged File</p>
+		
+		<a href="/visualize1" id= "btn1" class="btn-get-started scrollto">Visualize</a>
+		
+		<p id= "cp1">Click Here to Visualize File</p>
+		<input type="button" id="btn" value="Download" class="btn-get-started scrollto"/>
+		<script>
+			function download(file, text) {
+			
+			//creating an invisible element
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8, '
+			                            + encodeURIComponent(text));  
+			element.setAttribute('download', file);
+			
+			//the above code is equivalent to
+			// <a href="path of file" download="file name">
+			
+			document.body.appendChild(element);
+			
+			//onClick property
+			element.click();
+			
+			document.body.removeChild(element);
+			}
+			
+			// Start file download.
+			document.getElementById("btn").addEventListener("click", function() {
+			// Generate download of hello.txt file with some content
+			var text = document.getElementById("text").value;
+			var filename = "GFG.yml";
+			
+			download(filename, text);
+			}, false);
+		</script>
+
+   
+    </form>
+        
+      </div>
+    </section>
+    </section>
+    <!-- /section intro -->
+
+    <section id="content">
+      <div class="container">
+<br>
+<br>
+<br>
+<center>
+
+        <div class="row">
+          <div class="span12">
+            <div class="row">
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-info badge-circled">1</span>
+                    <i class="ico icon-dropbox icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Upload yaml Files</strong></h4>
+                    <p>
+                      Choose and upload your yaml files for Graph Visualization
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-success badge-circled">2</span>
+                    <i class="ico icon-bitbucket icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Give Precedence</strong></h4>
+                    <p>
+                      Give sequence for your uploaded files for merging
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-warning badge-circled">3</span>
+                    <i class="ico icon-rocket icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Merging</strong></h4>
+                    <p>
+                      Merge Your uploaded files 
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="span3">
+                <div class="box aligncenter">
+                  <div class="icon">
+                    <span class="badge badge-important badge-circled">4</span>
+                    <i class="ico icon-cut icon-5x"></i>
+                  </div>
+                  <div class="text">
+                    <h4><strong>Visualization</strong></h4>
+                    <p>
+                     See how your uploaded files in the form of graph!!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+       
+</body>
+
+</html>
